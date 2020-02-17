@@ -1,0 +1,15 @@
+<% @notes.reverse_each do |note| %>
+    <div class="well">
+		<h1><%= note.title %></h1>
+		<p><%=note.note %></p>
+		<%= link_to "Read More" , note_path(note),:class => 'btn btn-default' %>
+
+		<hr>
+			<%= link_to "Edit", edit_note_path(note),:class =>'btn btn-default' %>
+			<%= link_to 'Delete', note_path(note),
+			  :class =>'btn btn-danger',
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+		</hr>
+    </div>
+<% end %>
